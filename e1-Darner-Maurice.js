@@ -1,13 +1,11 @@
-const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const rotLetters = "klmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
+const rotLetters = "klmnopqrstuvwxyzabcdefghijKLMNOPQRSTUVWXYZABCDEFGHIJ "
 const msg = "Enter a string to have it decrypted"
 const alertMsg = "The string you entered was invalid"
 
 
 function isNotEmpty(str) {
-  return str.trim() === ""?
-    null:
-    str
+  return str.trim() !== "" ? str : null
 }
 
 function getStrInput() {
@@ -27,9 +25,8 @@ function rot10(str) {
   const originalStr = str
   const decryptedStr = []
 
-  for (let letter in originalStr) {
+  for (let letter of originalStr) {
       decryptedStr.push(letters.charAt(rotLetters.indexOf(letter)))
   }
-
   return [originalStr, decryptedStr.join('')]
 }
